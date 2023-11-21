@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'MainPageIdk';
 });
 
-Route::get('/posts', 'PostsController@index');
-Route::get('/posts/create', 'PostsController@create');
-Route::get('/posts/update', 'PostsController@update');
+Route::get('/feed', 'FeedController@index')->name('feed.index');
+Route::get('/notifications', 'NotificationsController@index')->name('notifications.index');
+Route::get('/profile', 'UserController@index')->name('profile.index');
+Route::get('/post', 'PostController@index')->name('post.index');
