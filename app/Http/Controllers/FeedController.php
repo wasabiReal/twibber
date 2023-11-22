@@ -11,9 +11,9 @@ class FeedController extends Controller
 {
     public function index()
     {
-        $posts = Feed::all();
+        $feeds = Feed::all();
 
-        return view('feed', compact('posts'));
+        return view('feed.index', compact('feeds'));
     }
 
 }

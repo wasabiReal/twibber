@@ -15,14 +15,9 @@
                 @include('partials/sidebar')
             </div>
         </div>
-        <div class="col-xl-7">
+        <div class="col-xl-10">
             <div class="content">
                 @yield('content')
-            </div>
-        </div>
-        <div class="col-xl-3">
-            <div class="trends">
-                @include('partials/trends')
             </div>
         </div>
     </div>
