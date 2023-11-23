@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->unsignedInteger('likes')->nullable();
             $table->unsignedInteger('comments')->nullable();
+            $table->unsignedInteger('views')->nullable();
             $table->timestamps();
         });
     }

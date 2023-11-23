@@ -22,8 +22,8 @@
         </div>
     </div>
 </div>
-
-<script src="https://kit.fontawesome.com/74742ed102.js" crossorigin="anonymous"></script>
+<script src="https://cdn.tiny.cloud/1/25ae2v73fbnfg0j63qa2hid3ds0b7w5gwuole938pe6iqy30/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
+<script src="https://kit.fontawesome.com/74742ed102.js" crossorigin="anonymous"></script>
 </body>
 </html>
