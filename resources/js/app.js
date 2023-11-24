@@ -4,10 +4,17 @@ $('#alerta').on("click", function () {
     alert("Alerta TEST!");
 });
 
-tinymce.init({
-    selector: "#textarea-spread",
-    plugins: "emoticons",
-    toolbar: "emoticons",
-    toolbar_location: "bottom",
-    statusbar: false,
+$('#eye').on('click', function (e){
+    $(this).toggleClass('fa-eye fa-eye-slash');
+
+    if(this.classList.contains("fa-eye-slash")){
+        $('#gossip-input').attr('type', 'password');
+    }else{
+        $('#gossip-input').attr('type', 'text');
+    }
+});
+
+$(document).ready(function (e){
+
+
 });

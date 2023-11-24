@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'MainPageIdk';
+    return redirect('/gossip');
 });
 
+
+
+
 Route::get('/gossip', 'GossipController@index')->name('gossip.index');
-Route::get('/gossip', 'GossipController@store')->name('gossip.store');
 Route::get('/gossip/create', 'GossipController@create')->name('gossip.create');
 Route::get('/notifications', 'NotificationsController@index')->name('notifications.index');
 Route::get('/profile', 'UserController@index')->name('profile.index');

@@ -23,7 +23,10 @@ class GossipController extends Controller
 
     public function store()
     {
-        dd(123);
+        $data = \request()->validate([
+            'content' => 'string'
+        ]);
+        dd($data);
     }
 
 }

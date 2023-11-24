@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twibber</title>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/tinymce.js'])
 </head>
-<body>
+<body style="overflow: hidden;">
 @include('partials/header')
 <div class="container">
     <div class="row">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-xl-10">
-            <div class="content">
+            <div class="content" style="height: 100vh;">
                 @yield('content')
             </div>
         </div>
