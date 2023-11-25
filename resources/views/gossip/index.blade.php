@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    @foreach($feeds as $post)
+    @foreach($gossips as $post)
     <div class="gossip">
         <div class="gossip-author">
             <img src="{{ asset('images/sei_admiral.jpg') }}" alt="Avatar">
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="gossip-content">
-            <p>{{$post->content}}</p>
+            {!! $post->content !!}
         </div>
         <div class="gossip-panel">
             <div class="gossip-likes">
@@ -40,6 +40,11 @@
             <div class="gossip-views">
                 <i class="fa-solid fa-eye"></i>
                 @if(!$post->views) 0 @else {{$post->views}} @endif
+            </div>
+            <div class="readmore">
+                <a href="{{ route('gossip.show', $post) }}" class="btn btn-info btn-sm">
+                    Read more
+                </a>
             </div>
         </div>
     </div>

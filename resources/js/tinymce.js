@@ -4,7 +4,7 @@ tinymce.init({
     plugins: 'emoticons',
     toolbar:
         [
-            'emoticons | fontsize | bold italic underline strikethrough  removeformat|',
+            'emoticons | bold italic underline strikethrough removeformat|',
         ],
     toolbar_location: "bottom",
     statusbar: false,
