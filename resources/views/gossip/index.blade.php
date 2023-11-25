@@ -32,18 +32,20 @@
         </div>
         <div class="gossip-panel">
             <div class="gossip-likes">
-                <i class="fa-regular fa-heart"></i> @if(!$post->likes) 0 @else {{$post->likes}} @endif
+                <span class="formatted-number" title="{{ $post->likes }}">
+                <i class="fa-regular fa-heart"></i>@if(!$post->likes) 0 @else {{ formatLargeNumber($post->likes) }} @endif</span>
             </div>
             <div class="gossip-comments">
-                <i class="fa-solid fa-comments"></i> @if(!$post->comments) 0 @else {{$post->comments}} @endif
+                <span class="formatted-number" title="{{ $post->comments }}">
+                <i class="fa-solid fa-comments"></i>@if(!$post->comments) 0 @else {{ formatLargeNumber($post->comments) }} @endif</span>
             </div>
             <div class="gossip-views">
-                <i class="fa-solid fa-eye"></i>
-                @if(!$post->views) 0 @else {{$post->views}} @endif
+                <span class="formatted-number" title="{{ $post->views }}">
+                <i class="fa-solid fa-eye"></i>@if(!$post->views) 0 @else {{ formatLargeNumber($post->views) }} @endif</span>
             </div>
             <div class="readmore">
-                <a href="{{ route('gossip.show', $post) }}" class="btn btn-info btn-sm">
-                    Read more
+                <a href="{{ route('gossip.show', $post) }}" class="btn btn-outline-primary btn-sm">
+                    Read
                 </a>
             </div>
         </div>

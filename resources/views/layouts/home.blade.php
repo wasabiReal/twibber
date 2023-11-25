@@ -6,7 +6,7 @@
     <title>Twibber</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/tinymce.js'])
 </head>
-<body style="overflow: hidden;">
+<body>
 @include('partials/header')
 <div class="container">
     <div class="row">

@@ -1,8 +1,9 @@
 @extends('layouts.main')
 @section('content')
 
+
     <div class="back-button">
-        <a href="{{ url()->previous() }}" ><i class="fa fa-arrow-left fa-2x"></i></a>
+        <a href="{{ url()->previous() }}" ><i class="fa fa-arrow-left"></i> Back</a>
     </div>
 
     <div class="gossip">
@@ -18,11 +19,12 @@
         </div>
         <div class="gossip-panel">
             <div class="gossip-likes">
-                <i class="fa-regular fa-heart"></i> @if(!$post->likes) 0 @else {{$post->likes}} @endif
+                <span class="formatted-number" title="{{ $post->likes }}">
+                <i class="fa-regular fa-heart"></i>@if(!$post->likes) 0 @else {{ formatLargeNumber($post->likes) }} @endif</span>
             </div>
             <div class="gossip-views">
-                <i class="fa-solid fa-eye"></i>
-                @if(!$post->views) 0 @else {{$post->views}} @endif
+                <span class="formatted-number" title="{{ $post->views }}">
+                <i class="fa-solid fa-eye"></i>@if(!$post->views) 0 @else {{ formatLargeNumber($post->views) }} @endif</span>
             </div>
         </div>
         <div class="gossip-actions">

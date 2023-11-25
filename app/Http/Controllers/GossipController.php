@@ -12,8 +12,11 @@ class GossipController extends Controller
     public function index()
     {
         $gossips = Gossip::all();
+        $trends = Gossip::orderBy('views', 'desc')
+                        ->take(5)
+                        ->get();
 
-        return view('gossip.index', compact('gossips'));
+        return view('gossip.index', compact('gossips', 'trends'));
     }
 
     public function create()
@@ -48,8 +51,11 @@ class GossipController extends Controller
                 'content' => 'strong words mate'
             ]
         ];
+        $trends = Gossip::orderBy('views', 'desc')
+            ->take(5)
+            ->get();
 
-        return view('gossip.show', compact('post', 'comments'));
+        return view('gossip.show', compact('post', 'comments', 'trends'));
     }
 
     public function destroy(Gossip $post)
