@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gossip;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 
@@ -16,6 +17,7 @@ class GossipController extends Controller
                         ->take(5)
                         ->get();
 
+
         return view('gossip.index', compact('gossips', 'trends'));
     }
 
@@ -27,10 +29,24 @@ class GossipController extends Controller
     public function store()
     {
         $data = \request()->validate([
-            'content' => 'string'
+            'content' => 'string',
+            'tags' => 'nullable|string'
         ]);
-        if($data['content']){
-            Gossip::create($data);
+
+        $post = Gossip::create([
+            'content' => $data['content'],
+            'user_id' => 1
+        ]);
+
+        if ($data['tags']) {
+            $tags = explode(' ', $data['tags']);
+            foreach ($tags as $tag) {
+                // Перевірте, чи тег існує в таблиці tags
+                $tagModel = Tag::firstOrCreate(['title' => trim($tag, '#')]);
+
+                // Зв'яжіть пост і тег через проміжну таблицю posts_tags
+                $post->tags()->attach($tagModel->id);
+            }
         }
         return redirect()->route('gossip.index');
     }
@@ -49,6 +65,10 @@ class GossipController extends Controller
             [
                 'user_id' => '5',
                 'content' => 'strong words mate'
+            ],
+            [
+                'user_id' => '2',
+                'content' => 'vitalik nice good ;)'
             ]
         ];
         $trends = Gossip::orderBy('views', 'desc')
@@ -60,6 +80,7 @@ class GossipController extends Controller
 
     public function destroy(Gossip $post)
     {
+        $post->tags()->detach();
         $post->delete();
         return redirect()->route('gossip.index');
     }

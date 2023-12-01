@@ -30,6 +30,11 @@
         <div class="gossip-content">
             {!! $post->content !!}
         </div>
+        <div class="gossip-tags">
+            @foreach($post->tags as $tag)
+                <span>#{{ $tag->title }}</span>
+            @endforeach
+        </div>
         <div class="gossip-panel">
             <div class="gossip-likes">
                 <span class="formatted-number" title="{{ $post->likes }}">
