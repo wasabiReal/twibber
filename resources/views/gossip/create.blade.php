@@ -10,7 +10,10 @@
             <span style="font-size: 20px;">Tell me a gossip, {user.name} &#128520;</span>
         </div>
         <div class="col-12">
-            <textarea class="form-control" id="textarea-spread" cols="30" rows="5" name="content"></textarea>
+            <textarea class="form-control" id="textarea-spread" cols="30" rows="5" name="content">{{ old('content') }}</textarea>
+            @error('content')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
         <div class="col-12">
             <label for="tags" class="form-label">Add tags</label>

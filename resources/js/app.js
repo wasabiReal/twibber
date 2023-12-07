@@ -20,6 +20,7 @@ $('#tags').on('input', function () {
 
     tagsValue.forEach(function (el) {
         if (tagsRegex.test(el)) {
+            console.log(el);
             $('#tagError').text('');
         } else {
             $('#tagError').text('Invalid tag format. Use the format "#tag1 #tag2 #tag3".');

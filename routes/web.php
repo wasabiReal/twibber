@@ -17,15 +17,17 @@ Route::get('/', function () {
     return redirect('/gossip');
 });
 
+Route::group(['namespace' => 'Gossip'], function (){
+    Route::get('/gossip', 'IndexController')->name('gossip.index');
+    Route::get('/gossip/create', 'CreateController')->name('gossip.create');
+
+    Route::post('/gossip', 'StoreController')->name('gossip.store');
+    Route::get('/gossip/{post}', 'ShowController')->name('gossip.show');
+    Route::delete('/gossip/{post}', 'DestroyController')->name('gossip.delete');
+});
 
 
 
-Route::get('/gossip', 'GossipController@index')->name('gossip.index');
-Route::get('/gossip/create', 'GossipController@create')->name('gossip.create');
-
-Route::post('/gossip', 'GossipController@store')->name('gossip.store');
-Route::get('/gossip/{post}', 'GossipController@show')->name('gossip.show');
-Route::delete('/gossip/{post}', 'GossipController@destroy')->name('gossip.delete');
 
 Route::get('/notifications', 'NotificationsController@index')->name('notifications.index');
 Route::get('/profile', 'UserController@index')->name('profile.index');
